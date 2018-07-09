@@ -1,13 +1,13 @@
 /* eslint no-console:0 */
 
-import 'rc-time-picker/assets/index.less';
+import '@sdp.nd/rc-time-picker/assets/index.less';
 
 import React from 'react';
 import ReactDom from 'react-dom';
 
 import moment from 'moment';
 
-import TimePicker from 'rc-time-picker';
+import TimePicker from '@sdp.nd/rc-time-picker';
 
 const showSecond = true;
 const str = showSecond ? 'HH:mm:ss' : 'HH:mm';
@@ -64,6 +64,7 @@ ReactDom.render(
       disabledHours={disabledHours}
       disabledMinutes={disabledMinutes}
       disabledSeconds={disabledSeconds}
+      placeholder={'请选择时间'}
     />
   </div>
 , document.getElementById('__react-content'));
