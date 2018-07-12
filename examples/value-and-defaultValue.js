@@ -1,11 +1,11 @@
 /* eslint no-console:0 */
 
-import 'rc-time-picker/assets/index.less';
+import '@sdp.nd/rc-time-picker/assets/index.less';
 
 import React from 'react';
 import ReactDom from 'react-dom';
 import moment from 'moment';
-import TimePicker from 'rc-time-picker';
+import TimePicker from '@sdp.nd/rc-time-picker';
 
 class App extends React.Component {
   state = {
