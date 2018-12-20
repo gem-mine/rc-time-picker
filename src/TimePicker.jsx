@@ -57,7 +57,7 @@ export default class Picker extends Component {
     onKeyDown: PropTypes.func,
     autoFocus: PropTypes.bool,
     id: PropTypes.string,
-    selectIcon: PropTypes.node,
+    inputIcon: PropTypes.node,
     clearIcon: PropTypes.node,
   };
 
@@ -262,7 +262,7 @@ export default class Picker extends Component {
     const {
       prefixCls, placeholder, placement, align, id,
       disabled, transitionName, style, className, getPopupContainer, name, autoComplete,
-      onFocus, onBlur, autoFocus, inputReadOnly, selectIcon,
+      onFocus, onBlur, autoFocus, inputReadOnly, inputIcon,
     } = this.props;
     const { open, value } = this.state;
     const popupClassName = this.getPopupClassName();
@@ -300,7 +300,7 @@ export default class Picker extends Component {
             readOnly={!!inputReadOnly}
             id={id}
           />
-          {selectIcon || <span className={`${prefixCls}-icon`}/>}
+          {inputIcon || <span className={`${prefixCls}-icon`}/>}
         </span>
       </Trigger>
     );
