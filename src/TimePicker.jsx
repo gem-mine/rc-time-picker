@@ -10,6 +10,11 @@ function noop() {
 }
 
 function refFn(field, component) {
+  if (field === 'picker') {
+    // 如果是NdInput的话需要再深入一级
+    this[field] = component && component.inputRef;
+    return;
+  }
   this[field] = component;
 }
 
