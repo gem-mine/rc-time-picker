@@ -10,6 +10,11 @@ function noop() {
 }
 
 function refFn(field, component) {
+  if (field === 'picker') {
+    // 如果是NdInput的话需要再深入一级
+    this[field] = component && component.inputRef;
+    return;
+  }
   this[field] = component;
 }
 
@@ -57,6 +62,8 @@ export default class Picker extends Component {
     onKeyDown: PropTypes.func,
     autoFocus: PropTypes.bool,
     id: PropTypes.string,
+    inputIcon: PropTypes.node,
+    clearIcon: PropTypes.node,
   };
 
   static defaultProps = {
@@ -175,6 +182,7 @@ export default class Picker extends Component {
       disabledMinutes, disabledSeconds, hideDisabledOptions, inputReadOnly,
       allowEmpty, showHour, showMinute, showSecond, defaultOpenValue, clearText,
       addon, use12Hours, focusOnOpen, onKeyDown, hourStep, minuteStep, secondStep,
+      clearIcon,
     } = this.props;
     return (
       <Panel
@@ -204,6 +212,7 @@ export default class Picker extends Component {
         addon={addon}
         focusOnOpen={focusOnOpen}
         onKeyDown={onKeyDown}
+        clearIcon={clearIcon}
       />
     );
   }
@@ -258,7 +267,7 @@ export default class Picker extends Component {
     const {
       prefixCls, placeholder, placement, align, id,
       disabled, transitionName, style, className, getPopupContainer, name, autoComplete,
-      onFocus, onBlur, autoFocus, inputReadOnly,
+      onFocus, onBlur, autoFocus, inputReadOnly, inputIcon,
     } = this.props;
     const { open, value } = this.state;
     const popupClassName = this.getPopupClassName();
@@ -296,7 +305,7 @@ export default class Picker extends Component {
             readOnly={!!inputReadOnly}
             id={id}
           />
-          <span className={`${prefixCls}-icon`}/>
+          {inputIcon || <span className={`${prefixCls}-icon`}/>}
         </span>
       </Trigger>
     );
