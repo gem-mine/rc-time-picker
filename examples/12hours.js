@@ -1,13 +1,13 @@
 /* eslint no-console:0 */
 
-import 'rc-time-picker/assets/index.less';
+import '@sdp.nd/rc-time-picker/assets/index.less';
 
 import React from 'react';
 import ReactDom from 'react-dom';
 
 import moment from 'moment';
 
-import TimePicker from 'rc-time-picker';
+import TimePicker from '@sdp.nd/rc-time-picker';
 
 const format = 'h:mm a';
 
@@ -28,6 +28,7 @@ ReactDom.render(
     format={format}
     use12Hours
     inputReadOnly
+    placeholder={'请选择时间'}
   />,
   document.getElementById('__react-content'),
 );
