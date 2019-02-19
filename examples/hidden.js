@@ -1,13 +1,13 @@
 /* eslint no-console:0 */
 
-import '@sdp.nd/rc-time-picker/assets/index.less';
+import 'rc-time-picker/assets/index.less';
 
 import React from 'react';
 import ReactDom from 'react-dom';
 
 import moment from 'moment';
 
-import TimePicker from '@sdp.nd/rc-time-picker';
+import TimePicker from 'rc-time-picker';
 
 const showSecond = true;
 const str = showSecond ? 'HH:mm:ss' : 'HH:mm';
@@ -28,5 +28,5 @@ ReactDom.render(
     disabledMinutes={() => [0, 2, 4, 6, 8]}
     hideDisabledOptions
   />,
-  document.getElementById('__react-content')
+  document.getElementById('__react-content'),
 );
