@@ -5,6 +5,7 @@ import Trigger from 'rc-trigger';
 import moment from 'moment';
 import Panel from './Panel';
 import placements from './placements';
+import NdInput from '@sdp.nd/nd-input';
 
 function noop() {}
 
@@ -352,7 +353,8 @@ export default class Picker extends Component {
         onPopupVisibleChange={this.onVisibleChange}
       >
         <span className={`${prefixCls} ${className}`} style={style}>
-          <input
+          <NdInput
+            prefixCls={`${prefixCls}`}
             className={`${prefixCls}-input`}
             ref={this.saveInputRef}
             type="text"
