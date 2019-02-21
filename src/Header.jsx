@@ -173,7 +173,7 @@ class Header extends Component {
         prefixCls={`${prefixCls}`}
         className={`${prefixCls}-input  ${invalidClass}`}
         ref={ref => {
-          this.refInput = ref;
+          this.refInput = ref && ref.inputRef;
         }}
         onKeyDown={this.onKeyDown}
         value={str}
