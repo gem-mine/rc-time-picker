@@ -12,7 +12,6 @@ import TimePicker from '@sdp.nd/rc-time-picker';
 const showSecond = true;
 const str = showSecond ? 'HH:mm:ss' : 'HH:mm';
 
-
 function onChange(value) {
   console.log(value && value.format(str));
 }
@@ -25,5 +24,5 @@ ReactDom.render(
     className="xxx"
     onChange={onChange}
   />,
-  document.getElementById('__react-content')
+  document.getElementById('__react-content'),
 );

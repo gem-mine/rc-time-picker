@@ -11,7 +11,8 @@ ReactDom.render(
     <TimePicker defaultValue={moment()} showSecond={false} />
 
     <TimePicker defaultValue={moment()} showMinute={false} showSecond={false} />
-    <TimePicker defaultValue={moment()} showHour={false} showSecond={false}/>
+    <TimePicker defaultValue={moment()} showHour={false} showSecond={false} />
     <TimePicker defaultValue={moment()} showHour={false} showMinute={false} />
-  </div>
-, document.getElementById('__react-content'));
+  </div>,
+  document.getElementById('__react-content'),
+);

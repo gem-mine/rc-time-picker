@@ -1,17 +1,4 @@
 .@{prefixClass}-panel {
-  &-input-wrapper {
-    position: relative;
-    .@{prefixClass}-panel-input-placeholder {
-      color: #bfbfbf;
-      position: absolute;
-      left: 2px;
-      top: 0;
-      white-space: nowrap;
-      line-height: 18px;
-      height: 18px;
-      font-size: 12px;
-    }
-  }
   &-input {
     margin: 0;
     padding: 0;
@@ -31,33 +18,5 @@
     &-invalid {
       border-color: red;
     }
-  }
-
-  &-clear-btn {
-    position: absolute;
-    right: 6px;
-    cursor: pointer;
-    overflow: hidden;
-    width: 20px;
-    height: 20px;
-    text-align: center;
-    line-height: 20px;
-    top: 6px;
-    margin: 0;
-  }
-
-  &-clear-btn-icon:after {
-    content: "x";
-    font-size: 12px;
-    font-style: normal;
-    color: #aaa;
-    display: inline-block;
-    line-height: 1;
-    width: 20px;
-    transition: color 0.3s ease;
-  }
-
-  &-clear-btn-icon:hover:after {
-    color: #666;
   }
 }

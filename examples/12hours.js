@@ -11,7 +11,9 @@ import TimePicker from '@sdp.nd/rc-time-picker';
 
 const format = 'h:mm a';
 
-const now = moment().hour(0).minute(0);
+const now = moment()
+  .hour(0)
+  .minute(0);
 
 function onChange(value) {
   console.log(value && value.format(format));
@@ -28,5 +30,5 @@ ReactDom.render(
     inputReadOnly
     placeholder={'请选择时间'}
   />,
-  document.getElementById('__react-content')
+  document.getElementById('__react-content'),
 );

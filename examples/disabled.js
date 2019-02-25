@@ -12,7 +12,9 @@ import TimePicker from '@sdp.nd/rc-time-picker';
 const showSecond = true;
 const str = showSecond ? 'HH:mm:ss' : 'HH:mm';
 
-const now = moment().hour(14).minute(30);
+const now = moment()
+  .hour(14)
+  .minute(30);
 
 function generateOptions(length, excludedOptions) {
   const arr = [];
@@ -44,17 +46,13 @@ function disabledMinutes(h) {
 }
 
 function disabledSeconds(h, m) {
-  return [h + m % 60];
+  return [h + (m % 60)];
 }
 
 ReactDom.render(
   <div>
     <h3>Disabled picker</h3>
-    <TimePicker
-      defaultValue={now}
-      disabled
-      onChange={onChange}
-    />
+    <TimePicker defaultValue={now} disabled onChange={onChange} />
     <h3>Disabled options</h3>
     <TimePicker
       showSecond={showSecond}
@@ -66,5 +64,6 @@ ReactDom.render(
       disabledSeconds={disabledSeconds}
       placeholder={'请选择时间'}
     />
-  </div>
-, document.getElementById('__react-content'));
+  </div>,
+  document.getElementById('__react-content'),
+);

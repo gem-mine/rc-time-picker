@@ -28,5 +28,5 @@ ReactDom.render(
     disabledMinutes={() => [0, 2, 4, 6, 8]}
     hideDisabledOptions
   />,
-  document.getElementById('__react-content')
+  document.getElementById('__react-content'),
 );

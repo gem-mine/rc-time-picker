@@ -4,8 +4,21 @@ import '@sdp.nd/rc-time-picker/assets/index.less';
 import React from 'react';
 import ReactDom from 'react-dom';
 import TimePicker from '@sdp.nd/rc-time-picker';
+import moment from 'moment';
 
-const starPath = 'M908.1 353.1l-253.9-36.9L540.7 86.1c-3' +
+const iconStyle = {
+  position: 'absolute',
+  width: '24px',
+  right: 0,
+  top: 0,
+  bottom: 0,
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+};
+
+const starPath =
+  'M908.1 353.1l-253.9-36.9L540.7 86.1c-3' +
   '.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L3' +
   '69.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3-12.3 12' +
   '.7-12.1 32.9 0.6 45.3l183.7 179.1-43.4 252.9c-1.2 6.9' +
@@ -16,7 +29,8 @@ const starPath = 'M908.1 353.1l-253.9-36.9L540.7 86.1c-3' +
   ' 210.3L512 672.7 323.1 772l36.1-210.3-152.8-149L417.6' +
   ' 382 512 190.7 606.4 382l211.2 30.7-152.8 148.9z';
 
-const redoPath = 'M758.2 839.1C851.8 765.9 912 651.9 912' +
+const redoPath =
+  'M758.2 839.1C851.8 765.9 912 651.9 912' +
   ' 523.9 912 303 733.5 124.3 512.6 124 291.4 123.7 112 ' +
   '302.8 112 523.9c0 125.2 57.5 236.9 147.6 310.2 3.5 2.' +
   '8 8.6 2.2 11.4-1.3l39.4-50.5c2.7-3.4 2.1-8.3-1.2-11.1' +
@@ -36,6 +50,7 @@ class App extends React.Component {
     open: false,
     useIcon: false,
   };
+
   getIcon = (path, style = {}) => {
     return (
       <i
@@ -57,49 +72,52 @@ class App extends React.Component {
           fill="currentColor"
           style={{ verticalAlign: '-.125em' }}
         >
-          <path d={path} p-id="5827"></path>
+          <path d={path} p-id="5827" />
         </svg>
       </i>
     );
-  }
+  };
+
   setOpen = ({ open }) => {
     this.setState({ open });
-  }
+  };
+
   toggleOpen = () => {
+    const { open } = this.state;
     this.setState({
-      open: !this.state.open,
+      open: !open,
     });
-  }
+  };
+
   toggleIcon = () => {
+    const { useIcon } = this.state;
     this.setState({
-      useIcon: !this.state.useIcon,
+      useIcon: !useIcon,
     });
-  }
+  };
+
   render() {
-    const inputIcon = this.getIcon(starPath, {
-      position: 'absolute',
-      width: '24px',
-      right: 0,
-      top: 0,
-      bottom: 0,
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-    });
-    const clearIcon = this.getIcon(redoPath);
+    const inputIcon = this.getIcon(starPath, iconStyle);
+    const { useIcon, open } = this.state;
+    const clearIcon = this.getIcon(redoPath, { ...iconStyle, right: 20 });
     return (
       <div>
-        <button onClick={this.toggleOpen}>Toggle open</button>
-        <button onClick={this.toggleIcon}>Use Custom Icon</button>
+        <button onClick={this.toggleOpen} type="button">
+          Toggle open
+        </button>
+        <button onClick={this.toggleIcon} type="button">
+          Use Custom Icon
+        </button>
         <TimePicker
           style={{
             position: 'relative',
           }}
-          open={this.state.open}
+          defaultValue={moment('01:02:04', 'HH:mm:ss')}
+          open={open}
           onOpen={this.setOpen}
           onClose={this.setOpen}
-          inputIcon={this.state.useIcon && inputIcon || undefined}
-          clearIcon={this.state.useIcon && clearIcon || undefined}
+          inputIcon={(useIcon && inputIcon) || undefined}
+          clearIcon={(useIcon && clearIcon) || undefined}
           focusOnOpen
         />
       </div>
@@ -107,7 +125,4 @@ class App extends React.Component {
   }
 }
 
-ReactDom.render(
-  <App />,
-  document.getElementById('__react-content')
-);
+ReactDom.render(<App />, document.getElementById('__react-content'));
