@@ -58,7 +58,7 @@
     ]
   },
   "dependencies": {
-    "@sdp.nd/nd-input": "^1.0.0",
+    "@sdp.nd/nd-input": "^2.0.1",
     "classnames": "2.x",
     "moment": "2.x",
     "prop-types": "^15.5.8",
