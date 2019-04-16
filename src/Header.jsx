@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
+import classNames from 'classnames';
 import NdInput from '@sdp.nd/nd-input';
 
 class Header extends Component {
@@ -20,7 +21,6 @@ class Header extends Component {
     disabledSeconds: PropTypes.func,
     onChange: PropTypes.func,
     onEsc: PropTypes.func,
-    allowEmpty: PropTypes.bool,
     defaultOpenValue: PropTypes.object,
     currentSelectPanel: PropTypes.string,
     focusOnOpen: PropTypes.bool,
@@ -75,7 +75,6 @@ class Header extends Component {
       disabledMinutes,
       disabledSeconds,
       onChange,
-      allowEmpty,
     } = this.props;
 
     if (str) {
@@ -136,13 +135,8 @@ class Header extends Component {
       } else if (originalValue !== value) {
         onChange(value);
       }
-    } else if (allowEmpty) {
-      onChange(null);
     } else {
-      this.setState({
-        invalid: true,
-      });
-      return;
+      onChange(null);
     }
 
     this.setState({
@@ -171,7 +165,7 @@ class Header extends Component {
     return (
       <NdInput
         prefixCls={`${prefixCls}`}
-        className={`${prefixCls}-input  ${invalidClass}`}
+        className={classNames(`${prefixCls}-input`, invalidClass)}
         ref={ref => {
           this.refInput = ref && ref.inputRef;
         }}
