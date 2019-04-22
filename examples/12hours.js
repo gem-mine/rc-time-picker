@@ -28,7 +28,7 @@ ReactDom.render(
     format={format}
     use12Hours
     inputReadOnly
-    placeholder={'请选择时间'}
+    placeholder="请选择时间"
   />,
   document.getElementById('__react-content'),
 );

@@ -62,7 +62,7 @@ ReactDom.render(
       disabledHours={disabledHours}
       disabledMinutes={disabledMinutes}
       disabledSeconds={disabledSeconds}
-      placeholder={'请选择时间'}
+      placeholder="请选择时间"
     />
   </div>,
   document.getElementById('__react-content'),
