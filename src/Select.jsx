@@ -11,6 +11,7 @@ const scrollTo = (element, to, duration) => {
     raf(() => {
       element.scrollTop = to;
     });
+    return;
   }
   const difference = to - element.scrollTop;
   const perTick = (difference / duration) * 10;
