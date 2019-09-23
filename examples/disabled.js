@@ -1,13 +1,13 @@
 /* eslint no-console:0 */
 
-import '@sdp.nd/rc-time-picker/assets/index.less';
+import '@gem-mine/rc-time-picker/assets/index.less';
 
 import React from 'react';
 import ReactDom from 'react-dom';
 
 import moment from 'moment';
 
-import TimePicker from '@sdp.nd/rc-time-picker';
+import TimePicker from '@gem-mine/rc-time-picker';
 
 const showSecond = true;
 const str = showSecond ? 'HH:mm:ss' : 'HH:mm';

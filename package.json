@@ -1,5 +1,5 @@
 {
-  "name": "@sdp.nd/rc-time-picker",
+  "name": "@gem-mine/rc-time-picker",
   "version": "3.1.0",
   "description": "React TimePicker",
   "keywords": [
@@ -58,7 +58,7 @@
     ]
   },
   "dependencies": {
-    "@sdp.nd/nd-input": "^2.0.1",
+    "@gem-mine/rc-input": "^2.0.1",
     "classnames": "2.x",
     "moment": "2.x",
     "prop-types": "^15.5.8",

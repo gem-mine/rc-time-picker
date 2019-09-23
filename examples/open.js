@@ -1,9 +1,9 @@
 /* eslint no-console:0 */
 
-import '@sdp.nd/rc-time-picker/assets/index.less';
+import '@gem-mine/rc-time-picker/assets/index.less';
 import React from 'react';
 import ReactDom from 'react-dom';
-import TimePicker from '@sdp.nd/rc-time-picker';
+import TimePicker from '@gem-mine/rc-time-picker';
 import moment from 'moment';
 
 const iconStyle = {

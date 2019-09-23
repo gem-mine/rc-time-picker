@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Trigger from 'rc-trigger';
 import moment from 'moment';
 import classNames from 'classnames';
-import NdInput from '@sdp.nd/nd-input';
+import NdInput from '@gem-mine/rc-input';
 import Panel from './Panel';
 import placements from './placements';
 

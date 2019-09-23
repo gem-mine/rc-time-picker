@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 import classNames from 'classnames';
-import NdInput from '@sdp.nd/nd-input';
+import NdInput from '@gem-mine/rc-input';
 
 class Header extends Component {
   static propTypes = {
