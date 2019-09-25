@@ -40,7 +40,7 @@
   },
   "devDependencies": {
     "enzyme": "^3.8.0",
-    "lint-staged": "^8.1.0",
+    "lint-staged": "^9.3.0",
     "pre-commit": "1.x",
     "rc-tools": "^8.4.1",
     "rc-util": "^4.0.2",
