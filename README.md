@@ -34,8 +34,9 @@ Usage
 -----
 
 ```
-import TimePicker from 'rc-time-picker';
+import TimePicker from '@gem-mine/rc-time-picker';
 import ReactDOM from 'react-dom';
+import '@gem-mine/rc-time-picker/assets/index.css';
 ReactDOM.render(<TimePicker />, container);
 ```
 

@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Trigger from 'rc-trigger';
 import moment from 'moment';
+import { polyfill } from 'react-lifecycles-compat';
 import classNames from 'classnames';
 import NdInput from '@gem-mine/rc-input';
 import Panel from './Panel';
@@ -19,7 +20,7 @@ function refFn(field, component) {
   this[field] = component;
 }
 
-export default class Picker extends Component {
+class Picker extends Component {
   static propTypes = {
     prefixCls: PropTypes.string,
     clearText: PropTypes.string,
@@ -78,7 +79,6 @@ export default class Picker extends Component {
     className: '',
     popupClassName: '',
     popupStyle: {},
-    id: '',
     align: {},
     defaultOpenValue: moment(),
     allowEmpty: true,
@@ -113,16 +113,20 @@ export default class Picker extends Component {
     };
   }
 
-  componentWillReceiveProps(nextProps) {
-    const { value, open } = nextProps;
-    if ('value' in nextProps) {
-      this.setState({
-        value,
-      });
+  static getDerivedStateFromProps(props, state) {
+    const newState = {};
+    if ('value' in props) {
+      newState.value = props.value;
     }
-    if (open !== undefined) {
-      this.setState({ open });
+    if (props.open !== undefined) {
+      newState.open = props.open;
     }
+    return Object.keys(newState).length > 0
+      ? {
+          ...state,
+          ...newState,
+        }
+      : null;
   }
 
   onPanelChange = value => {
@@ -383,3 +387,7 @@ export default class Picker extends Component {
     );
   }
 }
+
+polyfill(Picker);
+
+export default Picker;
